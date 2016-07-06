@@ -12,9 +12,9 @@ var core_1 = require('@angular/core');
 var user_service_1 = require("../services/user-service");
 var DetailsComponent = (function () {
     function DetailsComponent(userService) {
+        var _this = this;
         this.userService = userService;
-        this.user = this.userService.getUser();
-        console.log(this.user);
+        this.user = this.userService.getUser().subscribe(function (user) { return _this.user = user; }, function (error) { return console.log('Error: ' + error); }, function () { return console.log('Completed'); });
     }
     DetailsComponent = __decorate([
         core_1.Component({
