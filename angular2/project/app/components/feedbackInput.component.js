@@ -9,20 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var user_service_1 = require("../services/user-service");
-var DetailsComponent = (function () {
-    function DetailsComponent(userService) {
-        var _this = this;
-        this.userService = userService;
-        this.userService.getUser().subscribe(function (user) { return _this.user = user; }, function (error) { return console.log('Error: ' + error); }, function () { return console.log('Completed'); });
+var FeedbackInput = (function () {
+    function FeedbackInput() {
     }
-    DetailsComponent = __decorate([
+    FeedbackInput.prototype.submit = function () {
+        console.log(this.feedback);
+        this.addFeedback.emit(this.feedback);
+    };
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], FeedbackInput.prototype, "addFeedback", void 0);
+    FeedbackInput = __decorate([
         core_1.Component({
-            selector: 'my-dummy',
-            templateUrl: 'templates/user-detail.html'
+            selector: 'feedback-input',
+            directives: [],
+            template: "<input  text=\"input\" [(ngModel)]=\"feedback\"/><button (onClick)=\"submit()\">submit</button>"
         }), 
-        __metadata('design:paramtypes', [user_service_1.UserService])
-    ], DetailsComponent);
-    return DetailsComponent;
+        __metadata('design:paramtypes', [])
+    ], FeedbackInput);
+    return FeedbackInput;
 }());
-exports.DetailsComponent = DetailsComponent;
+exports.FeedbackInput = FeedbackInput;

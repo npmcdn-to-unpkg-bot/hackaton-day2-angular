@@ -17,14 +17,11 @@ var UserService = (function () {
         this.userUrl = 'user.json';
     }
     UserService.prototype.getUser = function () {
-        var _this = this;
-        return this.http.get(this.userUrl)
-            .map(function (res) { return res.json(); })
-            .subscribe(function (user) { return _this.user = user; });
+        return this.http.get(this.userUrl).map(this.extractData);
     };
     UserService.prototype.extractData = function (res) {
         var body = res.json();
-        return body.data || {};
+        return body || {};
     };
     UserService.prototype.handleError = function (error) {
         // In a real world app, we might use a remote logging infrastructure

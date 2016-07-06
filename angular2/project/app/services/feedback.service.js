@@ -14,7 +14,7 @@ var FeedbackService = (function () {
         this.feedback = [{ "id": "1", "message": "First messsage" }, { "id": "2", "message": "Second messsage" }];
     }
     FeedbackService.prototype.getFeedback = function () {
-        return feedback;
+        return this.feedback;
     };
     FeedbackService = __decorate([
         core_1.Injectable(), 
