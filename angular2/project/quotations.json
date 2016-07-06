@@ -1,0 +1,16 @@
+{
+  "quotations": [
+    {
+      "id": 1,
+      "title": "This is the first quotation",
+      "price": 300.9999,
+      "accepted": false
+    },
+    {
+      "id": 2,
+      "title": "This is the second quotation",
+      "price": 200,
+      "accepted": false
+    }
+  ]
+}
