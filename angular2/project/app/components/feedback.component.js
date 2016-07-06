@@ -12,18 +12,25 @@ var core_1 = require('@angular/core');
 var feedback_service_1 = require('../services/feedback.service');
 var feedbackItem_component_1 = require('./feedbackItem.component');
 var feedbackInput_component_1 = require('./feedbackInput.component');
+var searchFeedback_component_1 = require('./searchFeedback.component');
+var searchPipe_1 = require('./searchPipe');
 var FeedbackComponent = (function () {
     function FeedbackComponent(feedbackService) {
         this.feedbackService = feedbackService;
+        this.term = "";
     }
     FeedbackComponent.prototype.addFeedback = function (event) {
         this.feedbackService.addFeedbackByMessage(event);
     };
+    FeedbackComponent.prototype.updateSearch = function (term) {
+        this.term = term;
+    };
     FeedbackComponent = __decorate([
         core_1.Component({
             selector: 'my-feedback',
-            directives: [feedbackItem_component_1.FeedbackItemComponent, feedbackInput_component_1.FeedbackInput],
-            template: "<div>\n  \t\t\t\t<div>Feedback</div>\n  \t\t\t\t<feedback-item *ngFor=\"let feedbackItem of feedbackService.feedback\" [feedbackItem]=\"feedbackItem\"></feedback-item>\n  \t\t\t\t<feedback-input (addFeedback)=\"addFeedback($event)\"></feedback-input>\n  \t\t\t</div>"
+            pipes: [searchPipe_1.SearchPipe],
+            directives: [feedbackItem_component_1.FeedbackItemComponent, feedbackInput_component_1.FeedbackInput, searchFeedback_component_1.SearchFeedback],
+            template: "<div>\n  \t\t\t\t<div>Feedback</div>\n  \t\t\t\t<search-feedback (setSearch)=\"updateSearch($event)\"></search-feedback>\n  \t\t\t\t<feedback-item *ngFor=\"let feedbackItem of feedbackService.feedback | search : term\" [feedbackItem]=\"feedbackItem\"></feedback-item>\n  \t\t\t\t<feedback-input (addFeedback)=\"addFeedback($event)\"></feedback-input>\n  \t\t\t</div>"
         }), 
         __metadata('design:paramtypes', [feedback_service_1.FeedbackService])
     ], FeedbackComponent);
