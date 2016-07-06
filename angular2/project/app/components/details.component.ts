@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 // import { ROUTER_DIRECTIVES } from '@angular/router';
 import { User } from './user-model';
+import {UserService} from "../services/user-service";
 
 @Component({
   selector: 'my-dummy',
@@ -10,10 +11,8 @@ export class DetailsComponent {
 
     user: User;
     
-	constructor() {
-        this.user = new User;
-        this.user.firstName = 'Yorick';
-        this.user.id = 1;
-        this.user.lastName = 'Horrie';
+	constructor(public userService:UserService) {
+        this.user = this.userService.getUser();
+        console.log(this.user);
 	}
 }
