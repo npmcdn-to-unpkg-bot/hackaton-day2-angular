@@ -18,6 +18,10 @@ export class HomeComponent {
   constructor() {
   }
 
+  menuChange(){
+    console.log("test23");
+  }
+
   ngOnInit() {}
 
   ngOnDestroy() {
