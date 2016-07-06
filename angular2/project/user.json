@@ -1,0 +1,9 @@
+{
+  "user": {
+    "id":1,
+    "firstName":"Yorick",
+    "lastName":"Horrie",
+    "age":27,
+    "onVacation":false
+  }
+}

@@ -9,13 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+// import { ROUTER_DIRECTIVES } from '@angular/router';
+var user_model_1 = require('./user-model');
 var DetailsComponent = (function () {
     function DetailsComponent() {
+        this.user = new user_model_1.User;
+        this.user.firstName = 'Yorick';
+        this.user.id = 1;
+        this.user.lastName = 'Horrie';
     }
     DetailsComponent = __decorate([
         core_1.Component({
             selector: 'my-dummy',
-            template: '<div>Testert</div>'
+            templateUrl: 'app/components/user.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], DetailsComponent);

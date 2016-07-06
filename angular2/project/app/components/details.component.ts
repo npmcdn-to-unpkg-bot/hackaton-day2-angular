@@ -1,13 +1,18 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
+// import { ROUTER_DIRECTIVES } from '@angular/router';
+import { User } from './user-model';
+import {UserService} from "../services/user-service";
 
 @Component({
   selector: 'my-dummy',
-  template: '<div>Testert</div>'
+  templateUrl: 'app/components/user.component.html'
 })
 export class DetailsComponent {
 
-	constructor() {
-
+    user: User;
+    
+	constructor(public userService:UserService) {
+        this.user = this.userService.getUser();
+        console.log(this.user);
 	}
 }
