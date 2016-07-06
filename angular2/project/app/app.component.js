@@ -10,13 +10,14 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 };
 var core_1 = require('@angular/core');
 var router_1 = require('@angular/router');
+var user_service_1 = require('./services/user-service');
 var AppComponent = (function () {
     function AppComponent() {
     }
     AppComponent = __decorate([
         core_1.Component({
             selector: 'my-app',
-            providers: [],
+            providers: [user_service_1.UserService],
             directives: [router_1.ROUTER_DIRECTIVES],
             templateUrl: 'templates/main.html',
             styleUrls: []

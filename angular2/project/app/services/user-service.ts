@@ -3,6 +3,7 @@ import { Http, Response } from '@angular/http';
 
 import { Observable } from 'rxjs/Observable';
 import {User} from "../components/user-model";
+import {Subscription} from "rxjs/Subscription";
 
 @Injectable()
 export class UserService {
@@ -11,15 +12,13 @@ export class UserService {
     
     private userUrl = 'user.json';
 
-    getUser(): User {
-        return this.http.get(this.userUrl)
-                        .map(res => res.json())
-                        .subscribe(user => this.user = user);
+    getUser(): Observable {
+        return this.http.get(this.userUrl).map(this.extractData);
     }
 
     private extractData(res: Response) {
         let body = res.json();
-        return body.data || { };
+        return body || { };
     }
 
     private handleError (error: any) {
