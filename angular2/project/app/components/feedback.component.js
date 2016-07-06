@@ -11,15 +11,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var feedback_service_1 = require('../services/feedback.service');
 var feedbackItem_component_1 = require('./feedbackItem.component');
+var feedbackInput_component_1 = require('./feedbackInput.component');
 var FeedbackComponent = (function () {
     function FeedbackComponent(feedbackService) {
         this.feedbackService = feedbackService;
     }
+    FeedbackComponent.prototype.addFeedback = function (event) {
+        console.log(event);
+    };
     FeedbackComponent = __decorate([
         core_1.Component({
             selector: 'my-feedback',
-            directives: [feedbackItem_component_1.FeedbackItemComponent],
-            template: "<div>\n  \t\t\t\t<div>Feedback</div>\n  \t\t\t\t<span *ngFor=\"let feedbackItem of feedbackService.feedback\">\n  \t\t\t\t\t<feedback-item [feedbackItem]=\"feedbackItem\"></feedback-item>\n  \t\t\t\t</span>\n  \t\t\t</div>"
+            directives: [feedbackItem_component_1.FeedbackItemComponent, feedbackInput_component_1.FeedbackInput],
+            template: "<div>\n  \t\t\t\t<div>Feedback</div>\n  \t\t\t\t<feedback-item *ngFor=\"let feedbackItem of feedbackService.feedback\" [feedbackItem]=\"feedbackItem\"></feedback-item>\n  \t\t\t\t<feedback-input (addFeedback)=\"addFeedback($event)\"></feedback-input>\n  \t\t\t</div>"
         }), 
         __metadata('design:paramtypes', [feedback_service_1.FeedbackService])
     ], FeedbackComponent);
