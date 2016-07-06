@@ -11,10 +11,11 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var core_1 = require('@angular/core');
 var FeedbackInput = (function () {
     function FeedbackInput() {
+        this.addFeedback = new core_1.EventEmitter();
     }
     FeedbackInput.prototype.submit = function () {
-        console.log(this.feedback);
         this.addFeedback.emit(this.feedback);
+        this.feedback = "";
     };
     __decorate([
         core_1.Output(), 
@@ -24,7 +25,7 @@ var FeedbackInput = (function () {
         core_1.Component({
             selector: 'feedback-input',
             directives: [],
-            template: "<input  text=\"input\" [(ngModel)]=\"feedback\"/><button (onClick)=\"submit()\">submit</button>"
+            template: "<input  text=\"input\" [(ngModel)]=\"feedback\"/><button (click)=\"submit()\" >submit</button>"
         }), 
         __metadata('design:paramtypes', [])
     ], FeedbackInput);

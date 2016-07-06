@@ -9,12 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var feedback_model_1 = require('../components/feedback-model');
 var FeedbackService = (function () {
     function FeedbackService() {
-        this.feedback = [{ "id": "1", "message": "First messsage" }, { "id": "2", "message": "Second messsage" }];
+        this.feedback = [new feedback_model_1.Feedback("firstMessage"), new feedback_model_1.Feedback("secondMessage")];
     }
     FeedbackService.prototype.getFeedback = function () {
         return this.feedback;
+    };
+    FeedbackService.prototype.addFeedbackByMessage = function (message) {
+        this.newFeedback = new feedback_model_1.Feedback(message);
+        this.feedback.push(this.newFeedback);
     };
     FeedbackService = __decorate([
         core_1.Injectable(), 

@@ -17,7 +17,7 @@ var FeedbackComponent = (function () {
         this.feedbackService = feedbackService;
     }
     FeedbackComponent.prototype.addFeedback = function (event) {
-        console.log(event);
+        this.feedbackService.addFeedbackByMessage(event);
     };
     FeedbackComponent = __decorate([
         core_1.Component({

@@ -1,17 +1,17 @@
-import { Component, Output } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'feedback-input',
   directives: [],
-  template: `<input  text="input" [(ngModel)]="feedback"/><button (onClick)="submit()">submit</button>`
+  template: `<input  text="input" [(ngModel)]="feedback"/><button (click)="submit()" >submit</button>`
 })
 
 export class FeedbackInput {
-	@Output() addFeedback;
+	@Output() addFeedback = new EventEmitter();
 	feedback;
 
 	submit(){
-		console.log(this.feedback);
 		this.addFeedback.emit(this.feedback);
+		this.feedback = "";
 	}
 }

@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { ROUTER_DIRECTIVES } from '@angular/router';
 import { FeedbackService } from '../services/feedback.service';
 import { FeedbackItemComponent } from './feedbackItem.component';
 import { FeedbackInput } from './feedbackInput.component';
@@ -19,6 +18,6 @@ export class FeedbackComponent {
 	constructor(public feedbackService: FeedbackService) {}
 
 	addFeedback(event){
-		console.log(event);
+		this.feedbackService.addFeedbackByMessage(event);
 	}
 }
