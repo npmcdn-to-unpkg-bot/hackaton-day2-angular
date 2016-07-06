@@ -9,16 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var QuotationsComponent = (function () {
-    function QuotationsComponent() {
+var FeedbackService = (function () {
+    function FeedbackService() {
+        this.feedback = [{ "id": "1", "message": "First messsage" }, { "id": "2", "message": "Second messsage" }];
     }
-    QuotationsComponent = __decorate([
-        core_1.Component({
-            selector: 'my-quotations',
-            template: '<div>Quotations</div>'
-        }), 
+    FeedbackService.prototype.getFeedback = function () {
+        return feedback;
+    };
+    FeedbackService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], QuotationsComponent);
-    return QuotationsComponent;
+    ], FeedbackService);
+    return FeedbackService;
 }());
-exports.QuotationsComponent = QuotationsComponent;
+exports.FeedbackService = FeedbackService;

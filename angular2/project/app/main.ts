@@ -6,12 +6,14 @@ import { APP_ROUTER_PROVIDERS } from './app.routes';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { AppComponent } from './app.component';
+import { FeedbackService } from './services/feedback.service';
 
 bootstrap(AppComponent, [
 	HTTP_PROVIDERS,
 	APP_ROUTER_PROVIDERS,
 	disableDeprecatedForms(),
-  provideForms(),
-	{ provide: LocationStrategy, useClass: HashLocationStrategy }
+ 	provideForms(),
+	{ provide: LocationStrategy, useClass: HashLocationStrategy }, 
+	FeedbackService
 ])
 .catch(err => console.error(err));
