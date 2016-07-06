@@ -19,7 +19,7 @@ var DetailsComponent = (function () {
     DetailsComponent = __decorate([
         core_1.Component({
             selector: 'my-dummy',
-            templateUrl: 'app/components/user.component.html'
+            templateUrl: 'templates/user-detail.html'
         }), 
         __metadata('design:paramtypes', [user_service_1.UserService])
     ], DetailsComponent);

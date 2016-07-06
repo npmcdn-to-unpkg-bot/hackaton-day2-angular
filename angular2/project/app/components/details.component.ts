@@ -5,7 +5,7 @@ import {UserService} from "../services/user-service";
 
 @Component({
   selector: 'my-dummy',
-  templateUrl: 'app/components/user.component.html'
+  templateUrl: 'templates/user-detail.html'
 })
 export class DetailsComponent {
 
