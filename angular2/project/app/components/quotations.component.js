@@ -14,7 +14,7 @@ var QuotationsComponent = (function () {
     }
     QuotationsComponent = __decorate([
         core_1.Component({
-            selector: 'my-dummy',
+            selector: 'my-quotations',
             template: '<div>Quotations</div>'
         }), 
         __metadata('design:paramtypes', [])

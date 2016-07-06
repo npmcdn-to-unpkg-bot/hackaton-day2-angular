@@ -9,20 +9,17 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var user_service_1 = require("../services/user-service");
-var DetailsComponent = (function () {
-    function DetailsComponent(userService) {
-        this.userService = userService;
-        this.user = this.userService.getUser();
-        console.log(this.user);
+var FeedbackService = (function () {
+    function FeedbackService() {
+        this.feedback = [{ "id": "1", "message": "First messsage" }, { "id": "2", "message": "Second messsage" }];
     }
-    DetailsComponent = __decorate([
-        core_1.Component({
-            selector: 'my-dummy',
-            templateUrl: 'app/components/user.component.html'
-        }), 
-        __metadata('design:paramtypes', [user_service_1.UserService])
-    ], DetailsComponent);
-    return DetailsComponent;
+    FeedbackService.prototype.getFeedback = function () {
+        return feedback;
+    };
+    FeedbackService = __decorate([
+        core_1.Injectable(), 
+        __metadata('design:paramtypes', [])
+    ], FeedbackService);
+    return FeedbackService;
 }());
-exports.DetailsComponent = DetailsComponent;
+exports.FeedbackService = FeedbackService;
