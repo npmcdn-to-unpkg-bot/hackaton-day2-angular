@@ -12,7 +12,7 @@ export class DetailsComponent {
     user: User;
     
 	constructor(public userService:UserService) {
-        this.user = this.userService.getUser().subscribe(
+        this.userService.getUser().subscribe(
             user => this.user = user,
             error => console.log('Error: '+ error),
             () => console.log('Completed')

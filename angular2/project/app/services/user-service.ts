@@ -12,7 +12,7 @@ export class UserService {
     
     private userUrl = 'user.json';
 
-    getUser(): Observable {
+    getUser(): Observable<User> {
         return this.http.get(this.userUrl).map(this.extractData);
     }
 
