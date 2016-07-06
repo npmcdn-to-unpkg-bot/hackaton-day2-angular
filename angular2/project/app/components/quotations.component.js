@@ -9,15 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
+var quotations_service_1 = require('../services/quotations.service');
+var quotationItem_component_1 = require('../components/quotationItem.component');
 var QuotationsComponent = (function () {
-    function QuotationsComponent() {
+    function QuotationsComponent(quotationsService) {
+        this.quotationsService = quotationsService;
     }
     QuotationsComponent = __decorate([
         core_1.Component({
             selector: 'my-quotations',
-            template: '<div>Quotations</div>'
+            directives: [quotationItem_component_1.QuotationItemComponent],
+            template: "<div>\n        <div>Quotations</div>\n        <quotation-item [quotationItem]=\"quotation\" *ngFor=\"let quotation of quotationsService.quotations\">\n        </quotation-item>\n    </div>"
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [quotations_service_1.QuotationsService])
     ], QuotationsComponent);
     return QuotationsComponent;
 }());

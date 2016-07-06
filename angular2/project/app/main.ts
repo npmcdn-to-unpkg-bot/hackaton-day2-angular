@@ -7,6 +7,7 @@ import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import { disableDeprecatedForms, provideForms } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { FeedbackService } from './services/feedback.service';
+import { QuotationsService } from './services/quotations.service';
 
 bootstrap(AppComponent, [
 	HTTP_PROVIDERS,
@@ -14,6 +15,7 @@ bootstrap(AppComponent, [
 	disableDeprecatedForms(),
  	provideForms(),
 	{ provide: LocationStrategy, useClass: HashLocationStrategy }, 
-	FeedbackService
+	FeedbackService,
+	QuotationsService
 ])
 .catch(err => console.error(err));
