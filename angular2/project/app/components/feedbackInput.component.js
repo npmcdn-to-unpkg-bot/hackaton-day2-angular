@@ -9,17 +9,25 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-var FeedbackService = (function () {
-    function FeedbackService() {
-        this.feedback = [{ "id": "1", "message": "First messsage" }, { "id": "2", "message": "Second messsage" }];
+var FeedbackInput = (function () {
+    function FeedbackInput() {
     }
-    FeedbackService.prototype.getFeedback = function () {
-        return this.feedback;
+    FeedbackInput.prototype.submit = function () {
+        console.log(this.feedback);
+        this.addFeedback.emit(this.feedback);
     };
-    FeedbackService = __decorate([
-        core_1.Injectable(), 
+    __decorate([
+        core_1.Output(), 
+        __metadata('design:type', Object)
+    ], FeedbackInput.prototype, "addFeedback", void 0);
+    FeedbackInput = __decorate([
+        core_1.Component({
+            selector: 'feedback-input',
+            directives: [],
+            template: "<input  text=\"input\" [(ngModel)]=\"feedback\"/><button (onClick)=\"submit()\">submit</button>"
+        }), 
         __metadata('design:paramtypes', [])
-    ], FeedbackService);
-    return FeedbackService;
+    ], FeedbackInput);
+    return FeedbackInput;
 }());
-exports.FeedbackService = FeedbackService;
+exports.FeedbackInput = FeedbackInput;
