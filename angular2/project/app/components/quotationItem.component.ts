@@ -3,7 +3,7 @@ import { QuotationStatusComponent } from './quotationStatus.component';
 
 @Component({
   selector: 'quotation-item',
-  directives: [QuotationStatusComponent]
+  directives: [QuotationStatusComponent],
   template: `<div>
         <h2>{{quotationItem.title}}</h2>
         <p>Status: <quotation-status [quotationItem]="quotationItem"></quotation-status></p>

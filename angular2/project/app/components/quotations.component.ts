@@ -5,7 +5,7 @@ import { QuotationItemComponent } from '../components/quotationItem.component';
 
 @Component({
   selector: 'my-quotations',
-  directives: [QuotationItemComponent]
+  directives: [QuotationItemComponent],
   template: `<div>
         <div>Quotations</div>
         <quotation-item [quotationItem]="quotation" *ngFor="let quotation of quotationsService.quotations">

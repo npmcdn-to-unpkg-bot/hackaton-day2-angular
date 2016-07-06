@@ -4,6 +4,7 @@ import { Feedback } from '../components/feedback-model';
 @Injectable()
 export class FeedbackService{
 	feedback = [new Feedback("firstMessage"),new Feedback("secondMessage")];
+	newFeedback;
 	getFeedback(){
 		return this.feedback;
 	}

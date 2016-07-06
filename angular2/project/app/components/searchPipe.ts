@@ -4,7 +4,10 @@ import { Pipe } from '@angular/core';
 })
 export class SearchPipe {
    transform(value, term){
-    return value.filter((feedback)=>feedback.message.startsWith(term));
+   	if(term){
+   		return value.filter((feedback)=>feedback.message.startsWith(term));
+   	}
+    return value;
   }
 }
 

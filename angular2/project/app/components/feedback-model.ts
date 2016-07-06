@@ -1,6 +1,5 @@
 export class Feedback {
-    id: number;
-    message: string;
+    public id: number;
 
     constructor(public message:string = ""){
     	this.id = new Date().getTime();
