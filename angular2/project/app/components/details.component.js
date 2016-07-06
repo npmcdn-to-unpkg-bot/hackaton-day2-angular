@@ -9,21 +9,19 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 var core_1 = require('@angular/core');
-// import { ROUTER_DIRECTIVES } from '@angular/router';
-var user_model_1 = require('./user-model');
+var user_service_1 = require("../services/user-service");
 var DetailsComponent = (function () {
-    function DetailsComponent() {
-        this.user = new user_model_1.User;
-        this.user.firstName = 'Yorick';
-        this.user.id = 1;
-        this.user.lastName = 'Horrie';
+    function DetailsComponent(userService) {
+        this.userService = userService;
+        this.user = this.userService.getUser();
+        console.log(this.user);
     }
     DetailsComponent = __decorate([
         core_1.Component({
             selector: 'my-dummy',
             templateUrl: 'app/components/user.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [user_service_1.UserService])
     ], DetailsComponent);
     return DetailsComponent;
 }());
